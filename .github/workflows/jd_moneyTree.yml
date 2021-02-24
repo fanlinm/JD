@@ -6,7 +6,7 @@ name: 京东摇钱树
 on:
 
   schedule:
-    - cron: '4 */2 * * *'
+    - cron: '40 */3 * * *'
   watch:
     types: started
   repository_dispatch:
