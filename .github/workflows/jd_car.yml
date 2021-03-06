@@ -1,4 +1,4 @@
-name: 领京豆额外奖励
+name: car
 
 on:
   workflow_dispatch:
