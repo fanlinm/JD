@@ -6,11 +6,11 @@ name: jd_car_notify
 on:
   workflow_dispatch:
   schedule:
-    - cron: '11 16 * * *'
+    - cron: '11 10 * * *'
   watch:
     types: started
   repository_dispatch:
-    types: car_exchange
+    types: car_notify
 jobs:
   build:
 
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: qaqc123/JD
+          repository: danwangshimoluo/JdScripts
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -35,9 +35,9 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【京东汽车京豆兑换】'
+      - name: '运行 【京东汽车京豆兑换提醒】'
         run: |
-          node jd_car_exchange.js
+          node jd_car_notify.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
